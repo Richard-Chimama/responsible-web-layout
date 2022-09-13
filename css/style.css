@@ -1,0 +1,101 @@
+/** Not allowed to change this initial CSS code **/
+body {
+	background: url(../img/12_col.gif) center top repeat-y;
+	background-size: 90%;
+}
+/*************************************************/
+
+/*==============================*/
+/*======= mobile view ==========*/
+/*==============================*/
+
+.header-element, .box1, .box2, .box3,
+.content, .sidebar,.footer{
+	height: 5rem;
+}
+
+.header-element, .box1, .box2, .box3,
+.content, .sidebar,.footer, .footers{
+	border: 2px solid #000;
+	padding: 15px;
+}
+
+
+.main-container, .boxes, .contents, .footers{
+	display: grid;
+	gap: 15px;						
+}
+
+.main-container{
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+/*==================================*/
+/*======= tablet view  =============*/
+/*==================================*/
+
+@media screen and (min-width:768px){
+	.boxes{
+		grid-template-columns: repeat(3, 1fr);
+			
+	}
+
+	.contents{
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footers{
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 2;
+		padding: 10px;
+	}
+	
+}
+
+/*==================================*/
+/*=======  laptop view  ============*/
+/*==================================*/
+
+@media screen and (min-width:960px){
+	.boxes{
+		grid-template-columns: 1fr 2fr 1fr;
+			
+	}
+
+	.contents{
+		grid-template-columns: 2fr 1fr;
+	}
+
+	.footers{
+		grid-template-columns: repeat(4, 1fr);
+		padding: 10px;
+	}
+
+	.header-element, .box1, .box2, .box3,
+	.content, .sidebar,.footer{
+		height: Clamp(5rem, 15vh,10rem);
+	}
+	
+}
+
+/*==================================*/
+/*======= larger destop view  ======*/
+/*==================================*/
+
+@media screen and (min-width:1200px){
+	.boxes{
+		grid-template-columns: 1fr 3fr 1fr;			
+	}
+
+	.contents{
+		grid-template-columns: 3fr 1fr;
+	}
+
+	.footers{
+		grid-template-columns: repeat(4, 1fr);
+		padding: 10px;
+	}
+	
+}
