@@ -11,45 +11,92 @@ body {
 
 .header-element, .box1, .box2, .box3,
 .content, .sidebar,.footer{
-	height: 5rem;
-}
-
-.header-element, .box1, .box2, .box3,
-.content, .sidebar,.footer, .footers{
+	min-height: 100px;
 	border: 2px solid #000;
 	padding: 15px;
 }
 
 
-.main-container, .boxes, .contents, .footers{
+.main-container{
 	display: grid;
-	gap: 15px;						
+	grid-template-columns: 1fr;
+	grid-template-areas: 
+			"header"
+			"box1"
+			"box2"
+			"box3"
+			"content"
+			"aside"
+			"footer";
+	gap: 2%;						
 }
 
 .main-container{
-	width: 90%;
+	width: 89.5%;
 	margin: 0 auto;
 }
 
+header{
+	grid-area: header;
+}
+.box1{
+	grid-area: box1;
+}
+.box2{
+	grid-area: box2;
+}
+.box3{
+	grid-area: box3;
+}
+.content{
+	grid-area: content;
+}
+.sidebar{
+	grid-area: aside;
+}
+.footers{
+	grid-area: footer;
+	display: grid;
+	gap: 2%;
+	padding: 10px;
+	border: 2px solid #000;
+	height: 600px;
+}
 
 /*==================================*/
 /*======= tablet view  =============*/
 /*==================================*/
 
 @media screen and (min-width:768px){
-	.boxes{
-		grid-template-columns: repeat(3, 1fr);
-			
+	.main-container{
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-areas: 
+				"header header header header header header"
+				"box1 box1 box2 box2 box3 box3"
+				"content content content aside aside aside"
+				"footer footer footer footer footer footer";
 	}
 
-	.contents{
-		grid-template-columns: repeat(2, 1fr);
+	.footer1{
+		grid-area: footer1;
+	}
+	.footer2{
+		grid-area: footer2;
+	}
+	.footer3{
+		grid-area: footer3;
+	}
+	.footer4{
+		grid-area: footer4;
 	}
 
 	.footers{
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 2;
-		padding: 10px;
+		grid-template-areas: 
+				"footer1 footer2"
+				"footer3 footer4";
+		column-gap: 2%;
+		height:auto;
 	}
 	
 }
@@ -59,23 +106,22 @@ body {
 /*==================================*/
 
 @media screen and (min-width:960px){
-	.boxes{
-		grid-template-columns: 1fr 2fr 1fr;
-			
-	}
-
-	.contents{
-		grid-template-columns: 2fr 1fr;
+	.main-container{
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-areas: 
+				"header header header header header header header header header header header header"
+				"box1 box1 box1 box2 box2 box2 box2 box2 box2 box3 box3 box3"
+				"content content content content content content content content aside aside aside aside"
+				"footer footer footer footer footer footer footer footer footer footer footer footer";
 	}
 
 	.footers{
-		grid-template-columns: repeat(4, 1fr);
-		padding: 10px;
-	}
-
-	.header-element, .box1, .box2, .box3,
-	.content, .sidebar,.footer{
-		height: Clamp(5rem, 15vh,10rem);
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-areas: 
+				"footer1 footer1 footer1 footer2 footer2 footer2 footer3 footer3 footer3 footer4 footer4 footer4";
+		column-gap: 2.7%;
+		padding-inline: 4px;
+		
 	}
 	
 }
@@ -85,17 +131,12 @@ body {
 /*==================================*/
 
 @media screen and (min-width:1200px){
-	.boxes{
-		grid-template-columns: 1fr 3fr 1fr;			
-	}
-
-	.contents{
-		grid-template-columns: 3fr 1fr;
-	}
-
-	.footers{
-		grid-template-columns: repeat(4, 1fr);
-		padding: 10px;
+	.main-container{
+		grid-template-areas: 
+				"header header header header header header header header header header header header"
+				"box1 box1 box2 box2 box2 box2 box2 box2 box2 box2 box3 box3"
+				"content content content content content content content content content aside aside aside"
+				"footer footer footer footer footer footer footer footer footer footer footer footer";
 	}
 	
 }
